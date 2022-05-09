@@ -5,7 +5,7 @@ const Jumbotron = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>
-        Buy, trade, and hold 600+ cryptocurrencies on MINANCE
+        Buy, trade, and hold 99+ cryptocurrencies on MINANCE
       </h1>
     </div>
   );
