@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import NavBar from "./components/NavBar/NavBar";
+import Jumbotron from "./components/Jumbotron/Jumbotron";
 const columns = [
   { field: "name", headerName: "Name", width: 70 },
   { field: "symbol", headerName: "Symbol", width: 130 },
@@ -31,6 +32,8 @@ function App() {
   return (
     <div className="App">
       <NavBar />
+      <Jumbotron />
+
       {/*    <div style={{ width: "100%", height: "24rem" }}>
         <DataGrid
           rows={coins}
