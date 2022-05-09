@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from "react";
-
+import styles from "./Datatable.module.css";
 import { DataGrid } from "@mui/x-data-grid";
+
+const columns = [
+  { field: "name", headerName: "Name", flex: 1 },
+  { field: "symbol", headerName: "Symbol", flex: 1 },
+  { field: "current_price", headerName: "Price", flex: 1 },
+  {
+    field: "price_change_percentage_24h",
+    headerName: "Change",
+    type: "number",
+    flex: 1,
+  },
+];
+
 const Datatable = () => {
   const [coins, setCoins] = useState([]);
 
-  const columns = [
-    { field: "name", headerName: "Name", width: 70 },
-    { field: "symbol", headerName: "Symbol", width: 130 },
-    { field: "current_price", headerName: "Price", width: 130 },
-    {
-      field: "price_change_percentage_24h",
-      headerName: "Change",
-      type: "number",
-      width: 90,
-    },
-  ];
   const fetchCoins = async () => {
     try {
       const res = await fetch(
@@ -29,15 +31,15 @@ const Datatable = () => {
   useEffect(() => {
     fetchCoins();
   }, []);
+
   return (
-    <div>
-      <div style={{ width: "100%", height: "24rem" }}>
+    <div className={styles.container}>
+      <div className={styles.table}>
         <DataGrid
           rows={coins}
           columns={columns}
-          pageSize={5}
+          pageSize={7}
           rowsPerPageOptions={[5]}
-          checkboxSelection
         />
       </div>
     </div>
